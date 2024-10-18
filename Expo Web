@@ -1,12 +1,58 @@
-<!DOCTYPEhtml>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <title>Portfolio<title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        img {
+            display: block;
+            max-width: 150px;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
 </head>
-<hr>
 <body>
-    <h1>About me</h1>
-    <p>Name:Chetsada Kiatkamonwong</p>
-    <p>Date of birth:5 December 2005</p>
+
+<div class="container">
+    <h1>Chetsada Kiatkamonwong</h1>
+    <img src="your-image.jpg" alt="Chetsada Kiatkamonwong">
+    <h2>About Me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae eros id libero tincidunt aliquam.</p>
+    
+    <h2>Contact</h2>
+    <p>Email:Chetsada.kiat@gmail.com</p>
+    <p>Phone: 0818020250</p>
+    
+    <h2>Social Links</h2>
+    <ul>
+        <li><a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></li>
+        <li><a href="https://twitter.com/yourprofile">Twitter</a></li>
+        <li><a href="https://github.com/yourprofile">GitHub</a></li>
+    </ul>
+</div>
+
 </body>
 </html>
+
