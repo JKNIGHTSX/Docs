@@ -1,9 +1,9 @@
-name: Deploy Jekyll Site
+name: Build and Deploy Jekyll Site
 
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Change as needed
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Adjust Ruby version as needed
+          ruby-version: '3.0'  # Adjust as necessary
 
       - name: Install dependencies
         run: |
@@ -31,3 +31,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_site
+bundle exec jekyll build --no-incremental
+bundle exec jekyll build
