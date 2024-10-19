@@ -1,16 +1,33 @@
-            - name: Build Jekyll for GitHub Pages
-  uses: actions/jekyll-build-pages@v1.0.13
-  with:
-    # Directory where the source files reside.
-    source: # optional, default is ./
-    # Output directory of the build. Although it can be nested inside the source, it cannot be the same as the source directory.
-    destination: # optional, default is ./_site
-    # Publishes posts with a future date. When set to true, the build is made with the --future option which overrides the future option that may be set in a Jekyll configuration file.
-    future: # optional
-    # The SHA-1 of the git commit for which the build is running. Default to GITHUB_SHA.
-    build_revision: # optional, default is ${{ github.sha }}
-    # Verbose output
-    verbose: # optional, default is true
-    # GitHub token
-    token: # default is ${{ github.token }}
-          
+name: Deploy Jekyll Site
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # Adjust Ruby version as needed
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build the site
+        run: |
+          bundle exec jekyll build -d docs/_site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_site
